@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendar & Clock</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <section class="card" aria-label="Calendar">
+    <div class="head">
+      <h2 id="title"></h2>
+      <div class="nav">
+        <button class="btn" id="prev" aria-label="Previous month">‹</button>
+        <button class="btn" id="today">Today</button>
+        <button class="btn" id="next" aria-label="Next month">›</button>
+      </div>
+    </div>
+    <div class="dow" id="dow"></div>
+    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span><i class="dot e"></i>Event</span>
+      <span><i class="dot r"></i>Reminder</span>
+      <span><i class="dot" style="background:var(--accent)"></i>Today</span>
+      <span>Shaded day = has items</span>
+    </div>
+    <div class="hint">Click a day to see its items. Double-click (or double-tap) to add one.</div>
+  </section>
+
+  <aside class="side">
+    <div class="clock" aria-label="Digital clock">
+      <div class="time" id="time"></div>
+      <div class="date" id="cdate"></div>
+    </div>
+    <div class="card panel" id="panel"></div>
+  </aside>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="dlg">
+    <h3 id="mt">Add item</h3>
+    <label for="f-title">Title</label>
+    <input id="f-title" maxlength="80" placeholder="Team meeting">
+    <div class="row">
+      <div><label for="f-date">Date</label><input id="f-date" type="date"></div>
+      <div><label for="f-time">Time</label><input id="f-time" type="time"></div>
+    </div>
+    <label for="f-type">Type</label>
+    <select id="f-type"><option value="e">Event</option><option value="r">Reminder</option></select>
+    <div class="actions">
+      <button class="btn" id="cancel">Cancel</button>
+      <button class="btn primary" id="save">Save</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
